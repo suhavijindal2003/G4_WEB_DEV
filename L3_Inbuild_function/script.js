@@ -1,0 +1,87 @@
+function welcomestudent(welcomeMessage, goodbyeMessage) {
+    // console.log(welcomeMessage+" "+this.studentname+" is a student of class "+this.studentname+goodbyeMessage);
+    return `${welcomeMessage} ${this.studentname} is a student of class ${this.studentclass}. ${goodbyeMessage}`;
+ 
+}
+const student1 = {
+    studentname: "John",
+    studentclass: "10th",
+};
+const student2 = {
+    studentname: "Jane",
+    studentclass: "12th",
+ 
+};
+const student3 = {
+    studentname: "Doe",
+    studentclass: "11th",
+    
+};
+//call
+welcomestudent.call(student1, "Hello", "Goodbye");
+welcomestudent.call(student2, "Hi", "See you later");
+welcomestudent.call(student3, "Greetings", "Take care");
+
+//bind
+const student1Welcome = welcomestudent.bind(student1, "Hello", "Goodbye");
+const student2Welcome = welcomestudent.bind(student2, "Hi", "See you later");   
+console.log(student1Welcome());
+console.log(student2Welcome());   
+
+//apply
+welcomestudent.apply(student1, ["Hello", "Goodbye"]);
+welcomestudent.apply(student2, ["Hi", "See you later"]);
+
+//currying
+// that we can not passing the arguments in the function
+function sumofthree(a,b,c){
+    return a + b + c;
+}
+console.log(sumofthree(1,2,3)); 
+// currying function
+function currySum(a) {
+    return function(b) {
+        return function(c) {
+            return a + b + c;
+        }
+    }
+}
+console.log(currySum(1)(2)(3)); // 6
+
+//SUBWAY CURRYING FUNCTION
+function subwayOrder(bread) {
+    return function(patty) {
+        return function(cheese) {
+            return `Your order: ${bread} bread with ${patty} and ${cheese}.`;
+        }
+    }
+}
+console.log(subwayOrder("Wheat")("Allou patty")("chesse")); // Your order: Wheat bread with Chicken and Cheddar.
+
+
+//event bubbling and event capturing
+const child = document.getElementById("child");
+const parent = document.getElementById("parent");
+const grandparent = document.getElementById("grandparent");
+
+// grandparent.addEventListener("click", function() {
+//     console.log("Grandparent clicked");
+// },); 
+// parent.addEventListener("click", function() {
+//     console.log("Parent clicked");
+// },); 
+// child.addEventListener("click", function() {
+//     console.log("Child clicked");    
+// },); 
+
+
+//now i want event capturing
+grandparent.addEventListener("click", function() {
+    console.log("Grandparent clicked");
+}, true);
+parent.addEventListener("click", function() {
+    console.log("Parent clicked");
+}, true);
+child.addEventListener("click", function() {
+    console.log("Child clicked");
+}, true); 
