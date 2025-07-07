@@ -60,9 +60,9 @@ console.log(subwayOrder("Wheat")("Allou patty")("chesse")); // Your order: Wheat
 
 
 //event bubbling and event capturing
-const child = document.getElementById("child");
-const parent = document.getElementById("parent");
-const grandparent = document.getElementById("grandparent");
+// const child = document.getElementById("child");
+// const parent = document.getElementById("parent");
+// const grandparent = document.getElementById("grandparent");
 
 // grandparent.addEventListener("click", function() {
 //     console.log("Grandparent clicked");
@@ -76,12 +76,32 @@ const grandparent = document.getElementById("grandparent");
 
 
 //now i want event capturing
-grandparent.addEventListener("click", function() {
-    console.log("Grandparent clicked");
-}, true);
-parent.addEventListener("click", function() {
-    console.log("Parent clicked");
-}, true);
-child.addEventListener("click", function() {
-    console.log("Child clicked");
-}, true); 
+// grandparent.addEventListener("click", function() {
+//     console.log("Grandparent clicked");
+// }, true);
+// parent.addEventListener("click", function() {
+//     console.log("Parent clicked");
+// }, true);
+// child.addEventListener("click", function() {
+//     console.log("Child clicked");
+// }, true); 
+
+
+//fetch data from products arrayof objects contain produxtname,s]description,prine
+const products = [
+    { productName: "Laptop", description: "High performance laptop", price: 1000 },
+    { productName: "Smartphone", description: "Latest model smartphone", price: 800 },
+    { productName: "Tablet", description: "Portable tablet device", price: 600 },
+];
+
+
+function fetchProducts() {
+    products.forEach(product => {
+        console.log(`Product Name: ${product.productName}`);
+        console.log(`Description: ${product.description}`);
+        console.log(`Price: $${product.price}`);
+       
+    });
+}
+console.log("Fetching products...");
+fetchProducts();
