@@ -105,3 +105,21 @@ function fetchProducts() {
 }
 console.log("Fetching products...");
 fetchProducts();
+//make code to fetch data with .fetch() method
+
+fetch('/api/products')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // Parse the JSON data
+  })
+  .then(data => {
+    console.log("Fetched products:", data);
+    // You can now use data to render products on the page
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+  });
+
+
