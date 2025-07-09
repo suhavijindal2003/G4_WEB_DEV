@@ -59,10 +59,10 @@ function subwayOrder(bread) {
 console.log(subwayOrder("Wheat")("Allou patty")("chesse")); // Your order: Wheat bread with Chicken and Cheddar.
 
 
-//event bubbling and event capturing
-// const child = document.getElementById("child");
-// const parent = document.getElementById("parent");
-// const grandparent = document.getElementById("grandparent");
+// event bubbling and event capturing
+const child = document.getElementById("child");
+const parent = document.getElementById("parent");
+const grandparent = document.getElementById("grandparent");
 
 // grandparent.addEventListener("click", function() {
 //     console.log("Grandparent clicked");
@@ -75,15 +75,18 @@ console.log(subwayOrder("Wheat")("Allou patty")("chesse")); // Your order: Wheat
 // },); 
 
 
-//now i want event capturing
-// grandparent.addEventListener("click", function() {
+// //now i want event capturing
+// grandparent.addEventListener("click", function(e) {
 //     console.log("Grandparent clicked");
+//     e.stopPropagation(); // stops the event from bubbling up to parent and grandparent
 // }, true);
-// parent.addEventListener("click", function() {
+// parent.addEventListener("click", function(e) {
 //     console.log("Parent clicked");
+//     e.stopPropagation(); // stops the event from bubbling up to grandparent
 // }, true);
-// child.addEventListener("click", function() {
+// child.addEventListener("click", function(e) {
 //     console.log("Child clicked");
+//     e.stopPropagation(); // stops the event from bubbling up to parent and grandparent
 // }, true); 
 
 
